@@ -49,8 +49,8 @@ function getEmojiData(){
 		}
 		emojiData = data.data;
 		emojiData.reverse();
-		console.log(emojiData);
-		console.log('--------')
+		// console.log(emojiData);
+		// console.log('--------')
 	});
 }
 
@@ -72,6 +72,29 @@ function update(){
 		counter++;	
 	}
 }
+
+io.on('connection', function(socket){
+	socket.on('getData', function(_data){
+		console.log(_data)
+		sendToPi(_data.id,_data.duration);
+	});
+});
+
+function sendToPi(_id,_time){
+
+	var adress = process.env.PORT || 3000 + "/addAir?secret=janken&id="+_id+"&time="+_time;
+	request(adress,function(err,res,data){
+		if (data === undefined) {
+			console.log('No connection');
+			return;
+		}
+		console.log(err);
+	});
+
+	io.emit('getPiData',{id:_id,duration:_time});	
+}
+
+
 
 setInterval(update, 500);
 update();
