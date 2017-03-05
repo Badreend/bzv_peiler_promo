@@ -1,6 +1,14 @@
 var socket = io();
+var circleWidth = $('.v0').width();
+var left0 = $('.v0').offset().left;
+var top0 = $('.v0').offset().top;
 
+var left1 = $('.v1').offset().left;
+var top1  = $('.v1').offset().top;
 
+var left2 = $('.v2').offset().left;
+var top2 = $('.v2').offset().top;
+	
 $(function(){
 	$(".msgContainer").typed({
 		strings: ['<div class="msg">Blaas liefde in de ballonnen met:</div> <img src="img/0.png" class="msgEmoji"><img src="img/1.png" class="msgEmoji"><img src="img/2.png" class="msgEmoji">', "Ga naar de website voor de liefdespeiler!"],
@@ -25,15 +33,15 @@ socket.on('getStack',function(_data){
 	if(_data.id === 0){
 		v = $('.v0');
 		typeClass = $('.LOVE');
-		angles.love = [];
+		angles.love = 0;
 	}else if(_data.id === 1){
 		v = $('.v1');
 		typeClass = $('.HAHA');
-		angles.haha = [];
+		angles.haha = 0;
 	}else if(_data.id === 2){
 		v = $('.v2');
 		typeClass = $('.WOW');
-		angles.wow = [];
+		angles.wow = 0;
 
 	}else{
 		return;
@@ -54,34 +62,34 @@ socket.on('getStack',function(_data){
 });
 
 var angles = {
-	love: [],
-	haha: [],
-	wow: [],
+	love: 0,
+	haha: 0,
+	wow: 0
 }
 
 function addFace(_profile){
 	var left = undefined;
 	var top = undefined;
 	var angle = calcAngle(_profile);
-	var radius = $('.v0').width()*.75;
+	var radius = circleWidth * .70;
 	var typeImg = undefined;
-	center = $('.v0').width()/2-12;
+	center = circleWidth/2-12;
 	if(_profile.type === "LOVE"){
-		left = $('.v0').offset().left;
-		top = $('.v0').offset().top;
+		left = left0;
+		top = top0;
 		typeImg = "0.png";
 	}else if(_profile.type === "HAHA"){
-		left = $('.v1').offset().left;
-		top = $('.v1').offset().top;
+		left = left1;
+		top = top1;
 		typeImg = "1.png";
 	}else if(_profile.type === "WOW"){
-		left = $('.v2').offset().left;
-		top = $('.v2').offset().top;
+		left = left2
+		top = top2;
 		typeImg = "2.png";
 	}
 
 	left += center - Math.cos(angle) * radius;
-	top +=  center - Math.sin(angle) * radius;;
+	top +=  center - Math.sin(angle) * radius + 8;
 
 	$pic = $('<img>').attr('src',_profile.pic_large).attr('class',angle + ' profilePic '+ _profile.type).attr("type",_profile.type).css({top:top+"px",left:left+"px"});
 	$pic2 = $('<img>').attr('src',"img/"+typeImg).attr('class','profilePic tempEmoji '+ _profile.type).attr("type",_profile.type).css({top:top+"px",left:left+"px"});
@@ -93,35 +101,19 @@ function addFace(_profile){
 
 
 function calcAngle(_profile){
-	var angle = Math.random() * (2 * Math.PI);
-	var minDiff = .5;
+	var one = (Math.PI * 2 / 15);
 	if(_profile.type === "LOVE"){
-		for(var i= 0; i < angles.love.length; i++){
-					var diff = Math.abs(angles.love[i] - angle);
-					if(diff < minDiff){
-						angle = Math.random() * (2 * Math.PI);
-					}
-				}
-		angles.love.push(angle);
+	var angle = one * angles.love  + (Math.PI/2);
+	angles.love++;
 	}else if(_profile.type === "HAHA"){
-		for(var i= 0; i < angles.haha.length; i++){
-			var diff = Math.abs(angles.haha[i] - angle);
-			if(diff < minDiff){
-				angle = Math.random() * (2 * Math.PI);
-				i = 0; 
-				console.log('repeat');
-				console.log(diff);
-				console.log('----repeat----');
-			}
-		}
-			angles.haha.push(angle);		
-	
+	var angle = one * angles.haha  + (Math.PI/2);
+	angles.haha++;	
 	}else if(_profile.type === "WOW"){
-		console.log('wow')
+	var angle = one * angles.wow  + (Math.PI/2);
+	angles.wow++;
 	}
-	console.log('calced');
-
 	return angle;
+
 }
 
 

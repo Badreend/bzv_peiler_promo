@@ -11,6 +11,16 @@
 	font-family: Radikal-Light;
 }
 
+h1{
+	position: absolute;
+	width:100%;
+	font-size:70px;
+	font-family:'Radikal-Bold';
+	text-align: center;
+	margin-top:50px;
+	color:#fff;
+}
+
 
 body{
 	padding:0px;
@@ -27,8 +37,8 @@ body{
 }
 
 .name{
-	position: absolute;
-	bottom:-150px;
+	position: relative;
+	margin-bottom: 50px;
 	width:100%;
 	color:#fff;
 	text-align:center;
@@ -52,7 +62,7 @@ body{
 	position: absolute;
 	float:left;
 	margin-left:calc(50% - 40px);
-	margin-top:200px;
+	margin-top:140px;
 	width:80px;
 	z-index: 100;
 }
@@ -63,7 +73,7 @@ body{
 }
 .wrapper .vrouw{
 	position: absolute;
-	margin-top:40px;
+	margin-top:0px;
 	margin-left:calc(50% - 105px);
 	width:200px;
 	border:6px solid #fff;
@@ -152,7 +162,7 @@ body{
 		opacity: 1;
 	}
 	50% {
-		transform: scale(2);
+		transform: scale(1.5);
 		opacity: .9;
 
 	}
@@ -170,7 +180,10 @@ body{
 		transform: scale(1);
 	}
 	50% {
-		transform: scale(2);
+		transform: scale(1.5);
+	}
+	70% {
+		transform: scale(1.7);
 	}
 	100% {
 		transform: scale(1);
@@ -181,13 +194,23 @@ body{
 @keyframes pulse{
 	0% {
 		transform: scale(1);
+		border-color: #fff;
+
 	}
 
-	80% {
+	50% {
 		transform: scale(1.2);
+		border-color: #ece04d;
+	}
+
+	90% {
+		transform: scale(1.4);
+				border-color: #f55232;
+
 	}
 	100% {
 		transform: scale(1);
+		border-color: #fff;
 	}
 
 
