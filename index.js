@@ -49,7 +49,7 @@ var typeCounter = {
 	ANGRY: 0
 }
 
-var postID = 1589482717747961; 
+var postID = 910558295752345; 
 var limit = '20'
 var url = 'https://graph.facebook.com/v2.8/'+ postID + '/reactions' + '?fields=' + 'pic_large%2Cname%2Ctype'+ '&offset='+'5' + '&limit='+limit  +'&access_token=' + access_token;
 

@@ -43,7 +43,7 @@ $(".speed").change(function(e){
 });
 
 $(".stack").slider({
-    ticks: [1, 10, 30, 50, 70],
+    ticks: [1, 10, 30],
     value: stackValue,
     ticks_snap_bounds: 1
 });

@@ -3,31 +3,14 @@
 	font-family:'Radikal-Light';
 	src: url('../fonts/Radikal-Light.ttf');
 }
+@font-face {
+	font-family:'Radikal-Bold';
+	src: url('../fonts/Radikal-Bold.ttf');
+}
 *{
 	font-family: Radikal-Light;
 }
 
-.typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
 
 body{
 	padding:0px;
@@ -43,11 +26,24 @@ body{
 	opacity: 0;
 }
 
+.name{
+	position: absolute;
+	bottom:-150px;
+	width:100%;
+	color:#fff;
+	text-align:center;
+	font-size:30px;
+		font-family:'Radikal-Bold';
+/*    text-shadow: 0px 0px 5px #000; */
+    padding-top:-20px;
+}
+
 .canvas{
 	position: relative;
 	width:1280px;
 	height:720px;
-	back
+	background-image: url('http://1.bp.blogspot.com/-F_GDq7YDIZ0/UduoDQU20pI/AAAAAAAAEBE/FTJrqP5naMs/s1600/forest_sample1.jpg');
+	background-size: 100%
 }
 .wrapper{
 	border:0px solid #000;
@@ -70,10 +66,9 @@ body{
 	margin-top:40px;
 	margin-left:calc(50% - 105px);
 	width:200px;
-	border:5px solid #fff;
+	border:6px solid #fff;
 	border-radius: 140px;
 	z-index:99;
-
 }
 
 .wrapper .equalsign{
@@ -128,18 +123,17 @@ body{
 
 .msgContainer{
 	position: absolute;
-	bottom:20px;
-
-	width:100%;
+	width:calc(100% - 80px);
 	height:50px;
 	padding:20px;
 	padding-top:10px;
 	padding-left:60px;
-	background-color:#a3e5ef;
+	background-color:#ff9b24;
 	font-size: 60px;
 	color:#fff;
 	font-family: Radikal-Light;
 	text-align:left;
+	bottom:0px;
 }
 .msg{
 	position: relative;
