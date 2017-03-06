@@ -31,7 +31,7 @@ app.get('/overlay', function(req, res){
 
 /* om de 10 stemmen ga 500 ms blazen */ 
 var updateSpeed = 200;
-var stack = 10;
+var stack = 15;
 var time = 500;
 
 var access_token = '249333598850733|k4_yKbHyvZJFynd2AsoG2Sueoko'; 
