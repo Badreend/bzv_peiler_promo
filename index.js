@@ -153,7 +153,8 @@ function sendToPi(_id,_time){
 
 	//var adress = process.env.PORT || 3000 + "/addAir?secret=janken&id="+_id+"&time="+_time;
 	var adress =  "/addair?secret=janken&id="+_id+"&time="+_time;
-	var adress2 = "192.168.9.221";
+	//var adress2 = "192.168.9.221";
+	var adress2 = "192.168.180.7";
 	var port = 3000;
 	console.log(adress);
 
@@ -175,7 +176,7 @@ function sendToPi(_id,_time){
 
 function blowup(_id){
 	var adress =  "/blowup?secret=janken&id="+_id;
-	var adress2 = "192.168.9.221";
+	var adress2 = "192.168.180.7";
 	var port = 3000;
 
 	var options = {
