@@ -11,7 +11,7 @@ var top2 = $('.v2').offset().top;
 	
 $(function(){
 	$(".msgContainer").typed({
-		strings: ['<div class="msg">Blaas liefde in de ballonnen met:</div> <img src="img/0.png" class="msgEmoji"><img src="img/1.png" class="msgEmoji"><img src="img/2.png" class="msgEmoji">', "Ga naar boerzoektvrouw.nl voor de Liefdespeiler!"],
+		strings: ['<div class="msg">Blaas liefde in de ballonnen met:</div> <img src="img/0.png" class="msgEmoji"><img src="img/1.png" class="msgEmoji"><img src="img/2.png" class="msgEmoji">'],
 		typeSpeed:  0,
 		backSpeed:  -5000,
          backDelay: 8000,
