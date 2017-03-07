@@ -8,7 +8,7 @@ var top1  = $('.v1').offset().top;
 
 var left2 = $('.v2').offset().left;
 var top2 = $('.v2').offset().top;
-	
+var stack = undefined;	
 $(function(){
 	$(".msgContainer").typed({
 		strings: ['<div class="msg">Blaas liefde in de ballonnen met:</div> <img src="img/0.png" class="msgEmoji"><img src="img/1.png" class="msgEmoji"><img src="img/2.png" class="msgEmoji">'],
@@ -20,12 +20,21 @@ $(function(){
          loopCount: true,
 	});
 });
+socket.on('initControlPanel', function(_data){
+	stack = _data.stack;
+
+});
+
+
 
 var center = undefined;
 socket.on('getProfile',function(_data){
 	addFace(_data);
 });
 
+socket.on('getStackValue',function(_data){
+	stack = _data;
+});
 
 socket.on('getStack',function(_data){
 	var v = undefined;
@@ -101,7 +110,7 @@ function addFace(_profile){
 
 
 function calcAngle(_profile){
-	var one = (Math.PI * 2 / 15);
+	var one = (Math.PI * 2 / stack);
 	if(_profile.type === "LOVE"){
 	var angle = one * angles.love  + (Math.PI/2);
 	angles.love++;

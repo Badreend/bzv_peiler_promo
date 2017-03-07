@@ -31,7 +31,7 @@ app.get('/overlay', function(req, res){
 
 /* om de 10 stemmen ga 500 ms blazen */ 
 var updateSpeed = 200;
-var stack = 15;
+var stack = 10;
 var time = 500;
 
 var access_token = '249333598850733|k4_yKbHyvZJFynd2AsoG2Sueoko'; 
@@ -49,7 +49,7 @@ var typeCounter = {
 	ANGRY: 0
 }
 
-var postID = 1414187785270252; 
+var postID = 10155097173584146; 
 var limit = '20'
 var url = 'https://graph.facebook.com/v2.8/'+ postID + '/reactions' + '?fields=' + 'pic_large%2Cname%2Ctype'+ '&offset='+'5' + '&limit='+limit  +'&access_token=' + access_token;
 
@@ -131,6 +131,8 @@ io.on('connection', function(socket){
 		updateSpeed = _data.speed;
 		stack = _data.stack;
 		time = _data.time;
+		io.emit('getStackValue',stack);
+		console.log('tik')
 	});
 	socket.on('blowup', function(_data){
 		blowup(_data.id);

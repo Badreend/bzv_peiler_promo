@@ -14,12 +14,12 @@
 h1{
 	position: absolute;
 	width:100%;
-	font-size:74px;
+	font-size:82px;
 	font-family:'Radikal-Bold';
 	text-align: center;
-	margin-top:50px;
+	margin-top:125px;
 	color:#FEC329;
-	text-shadow: 4px 4px 15px rgba(50, 50, 50, .8);
+	text-shadow: 2px 2px 20px rgba(20, 20, 20, 1);
 }
 
 
@@ -31,7 +31,7 @@ body{
 	position: absolute;
 	width:30px;
 	height:30px;
-	border:2px solid #e54627;
+	border:2px solid #fff;
 	border-radius: 120px;
 	animation: temp ease-in-out 2s;
 	opacity: 0;
@@ -48,7 +48,7 @@ body{
 /*    text-shadow: 0px 0px 5px #000; */
     padding-top:-20px;
     margin-left:-25px;
-    	text-shadow: 4px 4px 15px rgba(50, 50, 50, .8);
+    	text-shadow: 2px 2px 5px rgba(10, 10, 10, 1);
 
 }
 
@@ -56,8 +56,8 @@ body{
 	position: relative;
 	width:1280px;
 	height:720px;
-/*	background-image: url('http://1.bp.blogspot.com/-F_GDq7YDIZ0/UduoDQU20pI/AAAAAAAAEBE/FTJrqP5naMs/s1600/forest_sample1.jpg');
-*/	background-size: 100%
+	background-image: url('../img/test_bg.jpg');
+	background-size: 100%
 }
 .wrapper{
 	border:0px solid #000;
@@ -97,21 +97,21 @@ body{
 	color:#fff;
 }
 .container0{
-	top:40%;
+	top:37%;
 	left:6.25%;
 	position: absolute;
 	width:25%;
 	height:200px;
 }
 .container1{
-	top:40%;
+	top:37%;
 	left:37.5%;
 	position: absolute;
 	width:25%;
 	height:200px;
 }
 .container2{
-	top:40%;
+	top:37%;
 	left:68.75%;
 	position: absolute;
 	width:25%;
