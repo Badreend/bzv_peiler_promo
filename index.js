@@ -49,8 +49,8 @@ var typeCounter = {
 	ANGRY: 0
 }
 
-var postID = 10155097173584146; 
-var limit = '20'
+var postID = 3127274657319703; 
+var limit = '40'
 var url = 'https://graph.facebook.com/v2.8/'+ postID + '/reactions' + '?fields=' + 'pic_large%2Cname%2Ctype'+ '&offset='+'5' + '&limit='+limit  +'&access_token=' + access_token;
 
 
@@ -72,7 +72,6 @@ function getEmojiData(){
 				}	
 	      	}
 	      		emojiData.push(res.data[i]);
-	      		console.log(emojiData.length);
 	      }
 	   
 	  }
@@ -103,15 +102,28 @@ function update(){
 			if(typeCounter[k] % stack === 0){
 				console.log("stack in " + k);
 				if(k  === 'LOVE'){
-					console.log(counter);
-					sendToPi(0,time);
 					sendStackOverlay(0,time);
+					setTimeout(function(){
+						sendToPi(0,time);
+					},1900);
 				}else if(k  === 'HAHA'){
-					sendToPi(1,time);
 					sendStackOverlay(1,time);
+						console.log('animate');
+					setTimeout(function(){
+						console.log('blow');
+						sendToPi(1,time);
+					},1900);
+
 				}else if(k  === 'WOW'){
-					sendToPi(2,time);
-					sendStackOverlay(2,time);						
+					sendStackOverlay(2,time);
+
+					setTimeout(function(){
+						if(time > 2000){
+							time = 1000;
+							console.log('time is too long');
+						}
+						sendToPi(2,time);
+					},1900);						
 				}
 			}
 		}
