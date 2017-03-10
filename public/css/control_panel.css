@@ -33,6 +33,7 @@
     }
 
   .inner{
+    position: relative;
     background-color:#fff;
     border-radius:1px;
     width:100%;

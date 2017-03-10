@@ -149,6 +149,9 @@ io.on('connection', function(socket){
 	socket.on('blowup', function(_data){
 		blowup(_data.id);
 	});
+	socket.on('close', function(_data){
+		close(_data.id);
+	});
 });
 function initControlPanel(){
 	io.emit('initControlPanel',{id:postID,speed:updateSpeed,stack:stack,time:time});
@@ -209,7 +212,27 @@ function blowup(_id){
 	
 	console.log('blowUp')
 }
+function close(_id){
+	var adress =  "/close?secret=janken&id="+_id;
+	var adress2 = "192.168.180.7";
+	var port = 3000;
 
+	var options = {
+		host: adress2,
+		path: adress,
+		port: port,
+		method: "GET"
+	}
+	var request = httpPi.request(options,function(req){
+	});
+	request.on('error',function(err){
+		console.log(err);
+	});
+
+	request.end();
+	
+	console.log('close'+_id)
+}
 
 
 	setInterval(update, updateSpeed);

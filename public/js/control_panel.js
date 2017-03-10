@@ -16,6 +16,21 @@ $('.btn2').click(function() {
 	socket.emit('blowup',{id:2});
 });
 
+$('.close0').click(function() {
+  socket.emit('close',{id:0});
+  console.log('close 0' )
+});
+$('.close1').click(function() {
+  socket.emit('close',{id:1});
+    console.log('close 1' )
+
+});
+$('.close2').click(function() {
+  socket.emit('close',{id:2});
+      console.log('close 2' )
+
+});
+
 function sendNewValues(){
 	socket.emit('getSettings', {stack:stackValue,time:timeValue,speed:speedValue});
 }	
